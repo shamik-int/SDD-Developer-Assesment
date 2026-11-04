@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Project Dashboard — Gate 0 BRD Review</title>
+<style>
+  body { font-family: system-ui, sans-serif; margin: 2rem; color: #1a1a1a; max-width: 1000px; }
+  h1, h2 { margin-bottom: .4rem; }
+  table { border-collapse: collapse; width: 100%; margin-bottom: 1.5rem; }
+  th, td { border: 1px solid #ccc; padding: .45rem .7rem; text-align: left; vertical-align: top; }
+  th { background: #f3f4f6; }
+  .pending { color: #92400e; font-weight: 600; }
+  .ok { color: #166534; }
+</style>
+</head>
+<body>
+<h1>Employee Internal Transfer — Gate 0 BRD Review</h1>
+<p>Project: SDD-Developer-Assessment · Baseline: <code>.ai-context/BRD.md</code> · Status: <span class="pending">Pending Review</span></p>
+
+<h2>Gate 0 Reviewer</h2>
+<table>
+  <tr><th>Reviewer</th><th>Email</th><th>Decision</th></tr>
+  <tr><td>Shamik Bhattacharya</td><td>shamik.bhattacharya@intglobal.com</td><td class="pending">Pending</td></tr>
+</table>
+
+<h2>BRD Summary</h2>
+<table>
+  <tr><th>Section</th><th>Count / Status</th></tr>
+  <tr><td>Functional Requirements</td><td>32 (BRD-001 – BRD-032)</td></tr>
+  <tr><td>Business Rules</td><td>16 (BR-001 – BR-016)</td></tr>
+  <tr><td>Non-Functional Requirements</td><td class="ok">Present (qualitative; no measurable targets in BRD)</td></tr>
+  <tr><td>Dependencies</td><td class="ok">12 listed</td></tr>
+  <tr><td>Assumptions</td><td class="ok">12 (see <code>.ai-context/assumptions.md</code>)</td></tr>
+  <tr><td>Out of Scope</td><td class="ok">11 items</td></tr>
+  <tr><td>Open Questions</td><td class="pending">16 unresolved (OQ-001 – OQ-016) — reviewer must answer before approval</td></tr>
+  <tr><td>Acceptance Criteria</td><td class="ok">13 success criteria</td></tr>
+</table>
+
+<h2>Gate Status</h2>
+<table>
+  <tr><th>Gate</th><th>Status</th></tr>
+  <tr><td>Gate 0 — BRD Review</td><td class="pending">Pending</td></tr>
+  <tr><td>Gate 1 — Spec Review</td><td>Blocked until Gate 0 approved</td></tr>
+  <tr><td>Gate 2 — Code Review</td><td>Not started</td></tr>
+</table>
+</body>
+</html>
