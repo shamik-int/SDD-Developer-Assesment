@@ -7,3 +7,8 @@
 - **Modified / Removed:** none
 - **Impact:** no existing specs or architecture affected.
 - **Gate status:** Gate 0 pending.
+
+## 2026-11-11 — Gate 0 approval
+- **Decision:** Approved by Shamik Bhattacharya (shamik.bhattacharya@intglobal.com).
+- **Record:** .ai-context/pr_reviews/gate-0-brd-review.md
+- **Notes:** OQ-001..OQ-016 carried forward to spec stage.

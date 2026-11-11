@@ -1,6 +1,6 @@
 # Assumptions
 
-Status: Pending Review (Gate 0) — accompanies `.ai-context/BRD.md`
+Status: Approved (Gate 0 — 2026-11-11) — accompanies `.ai-context/BRD.md`
 
 ## From the BRD (proposed, pending business confirmation)
 | ID | Assumption |

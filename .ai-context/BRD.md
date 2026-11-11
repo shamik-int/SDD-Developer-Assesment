@@ -4,7 +4,7 @@
 - **Source Version:** 1.0 (Initial Business Baseline)
 - **Parent Platform:** One-Point Employee Portal
 - **Organisation:** INT (Indus Net Technologies)
-- **Status:** Pending Review (Gate 0)
+- **Status:** Approved (Gate 0 — 2026-11-11, Shamik Bhattacharya)
 - **Baseline Date:** 2026-11-04
 
 ## 1. Objective / Business Objectives
