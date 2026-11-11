@@ -6,7 +6,7 @@
 - **Added:** BRD-001..BRD-032 (source FR-001..FR-032), BR-001..BR-016, OQ-001..OQ-016, assumptions A-01..A-12, NFRs, dependencies, out-of-scope items.
 - **Modified / Removed:** none
 - **Impact:** no existing specs or architecture affected.
-- **Gate status:** Gate 0 pending.
+- **Gate status:** Gate 0 approved (2026-11-11, Shamik Bhattacharya).
 
 ## 2026-11-11 — Gate 0 approval
 - **Decision:** Approved by Shamik Bhattacharya (shamik.bhattacharya@intglobal.com).
