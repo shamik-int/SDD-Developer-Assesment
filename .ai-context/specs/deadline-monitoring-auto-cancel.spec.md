@@ -4,7 +4,7 @@
 deadline-monitoring-auto-cancel
 
 ## Status
-In Peer Review
+Changes Requested
 
 ## Linked BRD
 .ai-context/BRD.md#BRD-021 · BRD-022 · BRD-023 · BRD-032 (rules BR-011, BR-012)
@@ -12,7 +12,7 @@ In Peer Review
 ## Gate Approvals & History
 | Gate | Approver | Date | Outcome | Approval Comment |
 |---|---|---|---|---|
-| Gate 1 (Spec Review) | Shamik Bhattacharya | — | Pending | — |
+| Gate 1 (Spec Review) | Shamik Bhattacharya | 2026-11-11 17:04:24 | Changes Requested | Define the `limit` validation on API01; define the reminder dedup field (`reminderSentAt`) with downstream-task-management; specify what counts as "mandatory", tasks already overdue when first seen, and the audit entry contents. See `.ai-context/pr_reviews/gate-1-deadline-monitoring-auto-cancel.md`. |
 | Gate 2 (Code Review) | Subhajit Mukherjee | — | Not Started | — |
 
 ## Intent & Business Goals

@@ -11,3 +11,7 @@
 
 ## 2026-11-11 — /int-sdd-lifecycle (spec authoring)
 - Created six specs from the approved BRD: transfer-request-submission, parallel-approval, downstream-task-management, deadline-monitoring-auto-cancel, transfer-execution, request-tracking-notifications. Status set to In Peer Review; status.md updated; halted for Gate 1.
+
+## 2026-11-11 — /int-pr-gate-workflow (Gate 1: deadline-monitoring-auto-cancel)
+- Reviewer identity verified (Gate 1 roster match). Individual review of deadline-monitoring-auto-cancel: **Changes Requested** by Shamik Bhattacharya. Criteria 6 (Validations), 7 (Dependencies) and 9 (Edge Cases) rated Needs Improvement; development readiness Not Ready. Synced pr_reviews/gate-1-deadline-monitoring-auto-cancel.md, the spec, status.md, dashboard.html. 5 specs remain pending Gate 1.
+- Reviewer supplied must-fix feedback (Exception escalation instead of auto-cancel, reuse of sla-lifecycle, working-calendar SLAs, UT01–UT14). Recorded in pr_reviews/gate-1-deadline-monitoring-auto-cancel.md with a baseline-conflict note: the feedback cites BRD v4, the approved baseline is v1.0, and the Critical items need a BRD change and Gate 0 re-approval first. status.md and dashboard.html synced.
