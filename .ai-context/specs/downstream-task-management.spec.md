@@ -16,11 +16,11 @@ In Peer Review
 | Gate 2 (Code Review) | Subhajit Mukherjee | — | Not Started | — |
 
 ## Intent & Business Goals
-After both approvals, the system generates downstream tasks for the Payroll, IT and Facilities teams. Each task has an owner team, a completion deadline and a status. Team members review and complete their tasks with comments. When every required task is complete, the request advances toward execution. This spec covers task generation, assignment, work and completion; deadline monitoring and auto-cancellation are in `deadline-monitoring-auto-cancel`.
+After both approvals, the system generates downstream tasks for the Payroll, IT and Facilities teams. Each task has an owner team, a completion deadline and a status. Team members review and complete their tasks with comments. When every required task is complete, the request advances toward execution. This spec covers task generation, assignment, work and completion; deadline monitoring, reminders and escalation are in `deadline-monitoring-exception-escalation`.
 
 ## Context
 - Builds on: `.ai-context/specs/parallel-approval.spec.md` (consumes `transfer.approved`)
-- Related: `.ai-context/specs/deadline-monitoring-auto-cancel.spec.md`, `.ai-context/specs/transfer-execution.spec.md`
+- Related: `.ai-context/specs/deadline-monitoring-exception-escalation.spec.md`, `.ai-context/specs/transfer-execution.spec.md`
 - Module: `backend/src/modules/downstream-tasks/`
 
 ## User Roles & Actors
@@ -36,6 +36,7 @@ After both approvals, the system generates downstream tasks for the Payroll, IT 
 | S3-A3 | Each task has its own deadline: `dueAt = approvedAt + deadlineDays(team)`. Deadline values are configuration supplied by the business before release; the spec fixes no default number. | OQ-003, OQ-005, A-08 |
 | S3-A4 | Deadline days are **calendar days** unless configuration sets `calendarType = BUSINESS`. | OQ-004 |
 | S3-A5 | Any team member of the owning team may complete the task (no per-person assignment). | BRD-018..020 |
+| S3-A7 | Per CR-20261112-exception-escalation: deadlines are SLA values on a working calendar (09:00–17:00 IST, Mon–Fri, excl. holidays); SLA instances (start, `dueAt`, config snapshot, fired thresholds) are owned by `deadline-monitoring-exception-escalation` and written through its service; tasks gain a `Not Required` status; this spec stores no reminder markers. Supersedes S3-A4 once Gate 0 approves the CR. | CR-20261112 |
 | S3-A6 | Integrations with Payroll/IT/Facilities systems sit behind adapter ports; this spec defines the manual task UI/API only and records integration outcome as task comments. | Dependencies 6–8 |
 
 ## Acceptance Criteria
@@ -149,6 +150,6 @@ Returns 200 with stored config; 403 for non-admin; 422 for `deadlineDays` < 1.
 - **Error Handling**: standard error envelope.
 
 ## Out of Scope
-- Deadline monitoring, reminders and auto-cancellation (`deadline-monitoring-auto-cancel`)
+- Deadline monitoring, reminders and exception escalation (`deadline-monitoring-exception-escalation`)
 - Real integrations with Payroll/IT/Facilities systems (adapter ports only; OQ-016)
 - Salary or payroll calculation policy changes

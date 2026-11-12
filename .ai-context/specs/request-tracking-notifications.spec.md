@@ -19,7 +19,7 @@ In Peer Review
 Employees get a consolidated view of their transfer requests with current status, a timeline of what has happened, and which stakeholders still have pending actions. All relevant users are notified of the 11 notification events defined in the BRD, including automatic cancellation. Authorised users can read the audit history of a request.
 
 ## Context
-- Builds on: events emitted by `transfer-request-submission`, `parallel-approval`, `downstream-task-management`, `deadline-monitoring-auto-cancel`, `transfer-execution`
+- Builds on: events emitted by `transfer-request-submission`, `parallel-approval`, `downstream-task-management`, `deadline-monitoring-exception-escalation`, `transfer-execution`
 - Module: `backend/src/modules/tracking/` and `backend/src/modules/notifications/`
 
 ## User Roles & Actors
@@ -57,12 +57,12 @@ Employees get a consolidated view of their transfer requests with current status
 - **Then:** the displayed status equals the stored status and uses the shared lifecycle names (Pending Approval, Partially Approved, Rejected, Pending Downstream Actions, Ready for Execution, Scheduled, Completed, Cancelled).
 
 ### request-tracking-notifications.AC5 — Notification events
-- **Given:** each BRD notification event (submitted; awaiting approval; manager approved; HR approved; rejected; task assigned; task completed; task approaching deadline; auto-cancelled; scheduled; completed)
+- **Given:** each BRD notification event (submitted; awaiting approval; manager approved; HR approved; rejected; task assigned; task completed; task approaching deadline; deadline reminder or escalation; exception raised; scheduled; completed)
 - **When:** the event occurs
 - **Then:** an in-portal notification is created for exactly the BRD-specified recipients with the reference number, event type and a link to the request.
 
-### request-tracking-notifications.AC6 — Auto-cancellation notice
-- **Given:** `transfer.auto_cancelled`
+### request-tracking-notifications.AC6 — Escalation and exception notices
+- **Given:** `task.sla_breached`, `task.escalation_l2`, `task.overdue_reminder` or `transfer.exception_raised`
 - **When:** it is processed
 - **Then:** the employee and relevant stakeholders are notified including the overdue task team and the reason.
 
@@ -122,7 +122,7 @@ Return 204; 404 when the notification is not the caller's.
 | request-tracking-notifications.UT03 | AC3 | active vs terminal request | pending list vs empty |
 | request-tracking-notifications.UT04 | AC4 | each lifecycle event | status matches store/labels |
 | request-tracking-notifications.UT05 | AC5 | each of 11 events | correct recipient set |
-| request-tracking-notifications.UT06 | AC6 | auto-cancel event | notices to employee + stakeholders with reason |
+| request-tracking-notifications.UT06 | AC6 | escalation and exception events | notices to the responsible team, HR Operations Head, employee and stakeholders with reason; no cancellation notice |
 | request-tracking-notifications.UT07 | AC7 | inbox, mark read, read-all | scoped; counts update |
 | request-tracking-notifications.UT08 | AC8 | duplicate event; adapter error | one notification; workflow unaffected |
 | request-tracking-notifications.UT09 | AC9 | history as authorised vs other | entries vs 403 |
